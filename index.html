@@ -4,74 +4,98 @@
   <meta charset="UTF-8">
   <title>Portfolio của tôi</title>
   <style>
-    /* ======= Thanh menu ======= */
-    nav {
-      background-color: #333;
-      overflow: hidden;
-    }
-    nav a {
-      float: left;
-      color: white;
-      text-align: center;
-      padding: 14px 20px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      background-color: #575757;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
     }
 
-    /* ======= Nội dung từng mục ======= */
+    h1 {
+      color: #333;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 15px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      color: #007acc;
+    }
+
     section {
-      padding: 20px;
+      margin-top: 30px;
+    }
+
+    img {
+      max-width: 200px;
+      margin-right: 10px;
     }
   </style>
 </head>
 <body>
 
-  <!-- ======= MENU ======= -->
-  <nav>
-    <a href="#illustrations">Illustrations</a>
-    <a href="#modeling">3D Modeling</a>
-    <a href="#storyboard">Story Board</a>
-    <a href="#branding">Branding</a>
-    <a href="#design">Design</a>
-    <a href="#calligraphy">Calligraphy</a>
-  </nav>
-
-  <!-- ======= TIÊU ĐỀ ======= -->
   <h1>Chào mừng đến với Portfolio của tôi!</h1>
   <p>Đây là một vài tác phẩm nghệ thuật tôi muốn chia sẻ.</p>
 
-  <!-- ======= CÁC MỤC ======= -->
+  <!-- 🔹 Thanh công cụ điều hướng -->
+  <nav>
+    <ul>
+      <li><a href="#illustrations">Illustrations</a></li>
+      <li><a href="#3d">3D Modeling</a></li>
+      <li><a href="#storyboard">Story Board</a></li>
+      <li><a href="#branding">Branding</a></li>
+      <li><a href="#design">Design</a></li>
+      <li><a href="#calligraphy">Calligraphy</a></li>
+    </ul>
+  </nav>
+
+  <!-- 🔸 Các mục nội dung -->
+
   <section id="illustrations">
     <h2>🎨 Illustrations</h2>
-    <img src="art1.jpg" alt="Tác phẩm 1" width="300">
+    <img src="illustration1.jpg" alt="Tác phẩm 1">
+    <img src="illustration2.jpg" alt="Tác phẩm 2">
   </section>
 
-  <section id="modeling">
+  <section id="3d">
     <h2>🧱 3D Modeling</h2>
-    <img src="art2.jpg" alt="Tác phẩm 2" width="300">
+    <img src="3d1.jpg" alt="3D 1">
+    <img src="3d2.jpg" alt="3D 2">
   </section>
 
   <section id="storyboard">
     <h2>📖 Story Board</h2>
-    <p>Chèn ảnh hoặc nội dung storyboard ở đây.</p>
+    <img src="storyboard1.jpg" alt="Storyboard 1">
   </section>
 
   <section id="branding">
     <h2>🏷️ Branding</h2>
-    <p>Chèn logo, bộ nhận diện thương hiệu tại đây.</p>
+    <img src="branding1.jpg" alt="Branding 1">
   </section>
 
   <section id="design">
     <h2>🖌️ Design</h2>
-    <p>Các sản phẩm thiết kế tổng hợp.</p>
+    <img src="design1.jpg" alt="Design 1">
   </section>
 
   <section id="calligraphy">
     <h2>✍️ Calligraphy</h2>
-    <p>Chữ viết nghệ thuật và thư pháp.</p>
+    <img src="calligraphy1.jpg" alt="Calligraphy 1">
   </section>
 
 </body>
