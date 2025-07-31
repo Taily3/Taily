@@ -10,15 +10,17 @@
       background: #f5f5f5;
     }
 
-    /* Slideshow dạng thu nhỏ YouTube (16:9 responsive) */
+    /* Slideshow dạng YouTube tỉ lệ 16:9 - đã thu nhỏ */
     .slideshow-container {
       position: relative;
       width: 100%;
-      max-width: 960px; /* Giống kích thước YouTube nhỏ */
+      max-width: 640px; /* Thu nhỏ còn 640px */
       aspect-ratio: 16 / 9;
-      margin: 0 auto;
+      margin: 20px auto;
       overflow: hidden;
       background: #000;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
     .slideshow-container img {
@@ -64,6 +66,7 @@
       background-color: #555;
     }
 
+    /* Nội dung */
     section {
       max-width: 1000px;
       margin: 40px auto;
@@ -73,7 +76,7 @@
 </head>
 <body>
 
-  <!-- Slideshow dạng YouTube (16:9) -->
+  <!-- Slideshow 16:9 nhỏ gọn -->
   <div class="slideshow-container">
     <img src="images/img1.jpg" class="active">
     <img src="images/img2.jpg">
@@ -95,12 +98,13 @@
     </ul>
   </nav>
 
-  <!-- Mục nội dung -->
+  <!-- Nội dung các mục -->
   <section id="illustrations">
     <h2>Illustrations</h2>
     <p>Thêm nội dung hoặc hình minh họa tại đây.</p>
   </section>
 
+  <!-- Slideshow script -->
   <script>
     const slides = document.querySelectorAll('.slideshow-container img');
     let currentSlide = 0;
@@ -111,6 +115,9 @@
       slides[currentSlide].classList.add('active');
     }, 1500);
   </script>
+
+</body>
+</html>
 
 </body>
 </html>
