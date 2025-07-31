@@ -1,148 +1,116 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Art Portfolio của tôi</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Art Portfolio</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background: #fff;
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
     }
 
-    /* ===== SLIDESHOW ===== */
-    .slideshow {
-      width: 100%;
-      max-width: 800px;
-      margin: 20px auto 10px auto;
+    /* SLIDESHOW TỶ LỆ 16:9 */
+    .slideshow-container {
       position: relative;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    }
-
-    .slideshow img {
       width: 100%;
-      height: auto;
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
+      max-width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
     }
 
-    /* ===== NAVBAR ===== */
+    .slideshow-container img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slideshow-container img.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    /* NAVIGATION BAR */
     nav {
       background-color: #333;
-      padding: 10px 0;
+      padding: 1rem;
       text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
 
     nav a {
       color: white;
-      margin: 0 15px;
       text-decoration: none;
-      font-weight: bold;
+      margin: 0 15px;
+      font-size: 1.1em;
     }
 
     nav a:hover {
       text-decoration: underline;
     }
 
-    /* ===== CONTENT ===== */
-    .section {
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    h1 {
+    /* CONTENT */
+    .content {
+      padding: 40px;
       text-align: center;
     }
 
-    img.artwork {
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-      margin: 10px 0;
-      display: block;
+    footer {
+      background-color: #f1f1f1;
+      text-align: center;
+      padding: 20px;
     }
   </style>
 </head>
 <body>
 
-  <!-- ===== SLIDESHOW PHÍA TRÊN ===== -->
-  <div class="slideshow">
-    <img src="slide1.jpg" class="slide" style="display:block;">
-    <img src="slide2.jpg" class="slide">
-    <img src="slide3.jpg" class="slide">
-    <img src="slide4.jpg" class="slide">
-    <img src="slide5.jpg" class="slide">
-    <img src="slide6.jpg" class="slide">
+  <!-- Slideshow -->
+  <div class="slideshow-container">
+    <img src="images/slide1.jpg" class="active" />
+    <img src="images/slide2.jpg" />
+    <img src="images/slide3.jpg" />
+    <img src="images/slide4.jpg" />
+    <img src="images/slide5.jpg" />
+    <img src="images/slide6.jpg" />
   </div>
 
-  <!-- ===== THANH MENU ===== -->
+  <!-- Navigation Bar -->
   <nav>
-    <a href="#illustrations">Illustrations</a>
-    <a href="#3d">3D Modeling</a>
-    <a href="#storyboard">Story Board</a>
-    <a href="#branding">Branding</a>
-    <a href="#design">Design</a>
-    <a href="#calligraphy">Calligraphy</a>
+    <a href="illustrations.html">Illustrations</a>
+    <a href="3d.html">3D Modeling</a>
+    <a href="storyboard.html">Story Board</a>
+    <a href="branding.html">Branding</a>
+    <a href="design.html">Design</a>
+    <a href="calligraphy.html">Calligraphy</a>
   </nav>
 
-  <!-- ===== CÁC MỤC NGHỆ THUẬT ===== -->
-  <div class="section" id="illustrations">
-    <h2>🎨 Illustrations</h2>
-    <img src="illustration1.jpg" alt="Illustration 1" class="artwork">
-    <img src="illustration2.jpg" alt="Illustration 2" class="artwork">
+  <!-- Main Content -->
+  <div class="content">
+    <h1>Welcome to My Portfolio</h1>
+    <p>Select a category from the menu to view my work.</p>
   </div>
 
-  <div class="section" id="3d">
-    <h2>🧱 3D Modeling</h2>
-    <img src="3d1.jpg" alt="3D Model 1" class="artwork">
-    <img src="3d2.jpg" alt="3D Model 2" class="artwork">
-  </div>
+  <footer>
+    &copy; 2025 My Portfolio
+  </footer>
 
-  <div class="section" id="storyboard">
-    <h2>📓 Story Board</h2>
-    <img src="story1.jpg" alt="Storyboard 1" class="artwork">
-    <img src="story2.jpg" alt="Storyboard 2" class="artwork">
-  </div>
-
-  <div class="section" id="branding">
-    <h2>🏷️ Branding</h2>
-    <img src="brand1.jpg" alt="Branding 1" class="artwork">
-  </div>
-
-  <div class="section" id="design">
-    <h2>🖌️ Design</h2>
-    <img src="design1.jpg" alt="Design 1" class="artwork">
-  </div>
-
-  <div class="section" id="calligraphy">
-    <h2>✒️ Calligraphy</h2>
-    <img src="calligraphy1.jpg" alt="Calligraphy 1" class="artwork">
-  </div>
-
-  <!-- ===== JAVASCRIPT CHẠY SLIDESHOW ===== -->
+  <!-- JS Slideshow -->
   <script>
-    let slideIndex = 0;
-    const slides = document.getElementsByClassName("slide");
+    const slides = document.querySelectorAll(".slideshow-container img");
+    let index = 0;
 
-    function showSlides() {
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) { slideIndex = 1; }
-      slides[slideIndex - 1].style.display = "block";
-      setTimeout(showSlides, 1500);
-    }
-
-    showSlides();
+    setInterval(() => {
+      slides[index].classList.remove("active");
+      index = (index + 1) % slides.length;
+      slides[index].classList.add("active");
+    }, 1500);
   </script>
-
 </body>
 </html>
 
