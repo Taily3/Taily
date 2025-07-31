@@ -2,108 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Art Portfolio</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #111;
-      color: #fff;
-    }
-
-    header {
-      padding: 20px;
-      text-align: center;
-      background: #000;
-    }
-
-    h1 {
-      font-size: 2em;
-    }
-
-    .slideshow-container {
-      position: relative;
-      width: 100%;
-      max-width: 960px;
-      aspect-ratio: 16 / 9;
-      margin: 30px auto;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);
-    }
-
-    .slide {
-      display: none;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
-    .active {
-      display: block;
-      animation: fade 1s ease-in-out;
-    }
-
-    @keyframes fade {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #000;
-      color: #aaa;
-      font-size: 14px;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Slideshow 16:9</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <header>
-    <h1>Welcome to My Art Portfolio</h1>
-  </header>
+  <h1>My Art Portfolio</h1>
 
   <div class="slideshow-container">
-    <img class="slide active" src="images/slide1.jpg" alt="Slide 1">
-    <img class="slide" src="images/slide2.jpg" alt="Slide 2">
-    <img class="slide" src="images/slide3.jpg" alt="Slide 3">
-    <img class="slide" src="images/slide4.jpg" alt="Slide 4">
-    <img class="slide" src="images/slide5.jpg" alt="Slide 5">
+    <div class="slide fade">
+      <img src="images/img1.jpg" alt="Slide 1">
+    </div>
+    <div class="slide fade">
+      <img src="images/img2.jpg" alt="Slide 2">
+    </div>
+    <div class="slide fade">
+      <img src="images/img3.jpg" alt="Slide 3">
+    </div>
   </div>
 
-  <footer>
-    &copy; 2025 Taily Art. All rights reserved.
-  </footer>
-
-  <script>
-    let index = 0;
-    const slides = document.querySelectorAll(".slide");
-
-    function showSlides() {
-      slides.forEach((slide, i) => {
-        slide.classList.remove("active");
-      });
-      index = (index + 1) % slides.length;
-      slides[index].classList.add("active");
-    }
-
-    setInterval(showSlides, 3000); // chuyển slide mỗi 3 giây
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
 
