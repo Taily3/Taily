@@ -10,17 +10,18 @@
       background: #f5f5f5;
     }
 
-    /* Slideshow cố định 1920x1080 */
-    .slideshow {
+    /* Slideshow dạng thu nhỏ YouTube (16:9 responsive) */
+    .slideshow-container {
       position: relative;
-      width: 1920px;
-      height: 1080px;
+      width: 100%;
+      max-width: 960px; /* Giống kích thước YouTube nhỏ */
+      aspect-ratio: 16 / 9;
       margin: 0 auto;
       overflow: hidden;
       background: #000;
     }
 
-    .slideshow img {
+    .slideshow-container img {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -29,7 +30,7 @@
       transition: opacity 1s ease-in-out;
     }
 
-    .slideshow img.active {
+    .slideshow-container img.active {
       opacity: 1;
     }
 
@@ -63,19 +64,17 @@
       background-color: #555;
     }
 
-    /* Phần nội dung bên dưới nếu cần */
     section {
       max-width: 1000px;
       margin: 40px auto;
       padding: 0 20px;
     }
-
   </style>
 </head>
 <body>
 
-  <!-- Slideshow cố định kích thước -->
-  <div class="slideshow">
+  <!-- Slideshow dạng YouTube (16:9) -->
+  <div class="slideshow-container">
     <img src="images/img1.jpg" class="active">
     <img src="images/img2.jpg">
     <img src="images/img3.jpg">
@@ -84,7 +83,7 @@
     <img src="images/img6.jpg">
   </div>
 
-  <!-- Navigation -->
+  <!-- Menu điều hướng -->
   <nav>
     <ul>
       <li><a href="#illustrations">Illustrations</a></li>
@@ -96,16 +95,14 @@
     </ul>
   </nav>
 
-  <!-- Nội dung các mục -->
+  <!-- Mục nội dung -->
   <section id="illustrations">
     <h2>Illustrations</h2>
     <p>Thêm nội dung hoặc hình minh họa tại đây.</p>
   </section>
 
-  <!-- Các phần khác thêm tương tự -->
-  
   <script>
-    const slides = document.querySelectorAll('.slideshow img');
+    const slides = document.querySelectorAll('.slideshow-container img');
     let currentSlide = 0;
 
     setInterval(() => {
