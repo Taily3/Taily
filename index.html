@@ -1,36 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>My Art Portfolio</title>
-  <link rel="stylesheet" href="style/styles.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+    }
+
+    /* Slideshow dạng thu nhỏ YouTube (16:9 responsive) */
+    .slideshow-container {
+      position: relative;
+      width: 100%;
+      max-width: 960px; /* Giống kích thước YouTube nhỏ */
+      aspect-ratio: 16 / 9;
+      margin: 0 auto;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .slideshow-container img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slideshow-container img.active {
+      opacity: 1;
+    }
+
+    /* Navigation menu */
+    nav {
+      background-color: #333;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: inline-block;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 15px;
+      display: block;
+      font-size: 18px;
+    }
+
+    nav ul li a:hover {
+      background-color: #555;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Slideshow Container -->
+  <!-- Slideshow dạng YouTube (16:9) -->
   <div class="slideshow-container">
-    <img src="images/1.jpg" class="slide" style="display: block;">
-    <img src="images/2.jpg" class="slide">
-    <img src="images/3.jpg" class="slide">
-    <img src="images/4.jpg" class="slide">
-    <img src="images/5.jpg" class="slide">
-    <img src="images/6.jpg" class="slide">
+    <img src="images/img1.jpg" class="active">
+    <img src="images/img2.jpg">
+    <img src="images/img3.jpg">
+    <img src="images/img4.jpg">
+    <img src="images/img5.jpg">
+    <img src="images/img6.jpg">
   </div>
 
-  <!-- Navigation Menu -->
-  <nav class="navbar">
+  <!-- Menu điều hướng -->
+  <nav>
     <ul>
-      <li><a href="illustrations.html">Illustrations</a></li>
-      <li><a href="3d.html">3D Modeling</a></li>
-      <li><a href="storyboard.html">Story Board</a></li>
-      <li><a href="branding.html">Branding</a></li>
-      <li><a href="design.html">Design</a></li>
-      <li><a href="calligraphy.html">Calligraphy</a></li>
+      <li><a href="#illustrations">Illustrations</a></li>
+      <li><a href="#3d">3D Modeling</a></li>
+      <li><a href="#storyboard">Story Board</a></li>
+      <li><a href="#branding">Branding</a></li>
+      <li><a href="#design">Design</a></li>
+      <li><a href="#calligraphy">Calligraphy</a></li>
     </ul>
   </nav>
 
-  <script src="script.js"></script>
+  <!-- Mục nội dung -->
+  <section id="illustrations">
+    <h2>Illustrations</h2>
+    <p>Thêm nội dung hoặc hình minh họa tại đây.</p>
+  </section>
+
+  <script>
+    const slides = document.querySelectorAll('.slideshow-container img');
+    let currentSlide = 0;
+
+    setInterval(() => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }, 1500);
+  </script>
+
 </body>
 </html>
-
