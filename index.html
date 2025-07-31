@@ -2,147 +2,128 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Art Portfolio của tôi</title>
+  <title>Portfolio Nghệ Thuật</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background: #fff;
     }
-
-    /* ===== SLIDESHOW ===== */
+    header {
+      background-color: #f0f0f0;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #eee;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #333;
+    }
+    section {
+      padding: 20px;
+    }
+    .category-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    img.artwork {
+      width: 200px;
+      margin: 5px;
+    }
+    /* Slide show */
     .slideshow {
       width: 100%;
-      max-width: 800px;
-      margin: 20px auto 10px auto;
-      position: relative;
+      max-height: 400px;
       overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      position: relative;
     }
-
     .slideshow img {
       width: 100%;
       height: auto;
       display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
     }
-
-    /* ===== NAVBAR ===== */
-    nav {
-      background-color: #333;
-      padding: 10px 0;
-      text-align: center;
-    }
-
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    /* ===== CONTENT ===== */
-    .section {
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    h1 {
-      text-align: center;
-    }
-
-    img.artwork {
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-      margin: 10px 0;
+    .slideshow img.active {
       display: block;
     }
   </style>
 </head>
 <body>
 
-  <!-- ===== SLIDESHOW PHÍA TRÊN ===== -->
+  <header>
+    <h1>Chào mừng đến với Portfolio của tôi!</h1>
+    <p>Đây là một vài tác phẩm nghệ thuật tôi muốn chia sẻ.</p>
+  </header>
+
+  <!-- Slideshow -->
   <div class="slideshow">
-    <img src="slide1.jpg" class="slide" style="display:block;">
-    <img src="slide2.jpg" class="slide">
-    <img src="slide3.jpg" class="slide">
-    <img src="slide4.jpg" class="slide">
-    <img src="slide5.jpg" class="slide">
-    <img src="slide6.jpg" class="slide">
+    <img src="slide1.jpg" class="active" alt="Ảnh 1">
+    <img src="slide2.jpg" alt="Ảnh 2">
+    <img src="slide3.jpg" alt="Ảnh 3">
+    <img src="slide4.jpg" alt="Ảnh 4">
+    <img src="slide5.jpg" alt="Ảnh 5">
+    <img src="slide6.jpg" alt="Ảnh 6">
   </div>
 
-  <!-- ===== THANH MENU ===== -->
+  <!-- Navbar -->
   <nav>
     <a href="#illustrations">Illustrations</a>
     <a href="#3d">3D Modeling</a>
-    <a href="#storyboard">Story Board</a>
+    <a href="#story">Story Board</a>
     <a href="#branding">Branding</a>
     <a href="#design">Design</a>
     <a href="#calligraphy">Calligraphy</a>
   </nav>
 
-  <!-- ===== CÁC MỤC NGHỆ THUẬT ===== -->
-  <div class="section" id="illustrations">
+  <!-- Nội dung từng phần -->
+  <section id="illustrations">
     <h2>🎨 Illustrations</h2>
-    <img src="illustration1.jpg" alt="Illustration 1" class="artwork">
-    <img src="illustration2.jpg" alt="Illustration 2" class="artwork">
-  </div>
+    <img src="illustration1.jpg" class="artwork" alt="Tác phẩm 1">
+    <img src="illustration2.jpg" class="artwork" alt="Tác phẩm 2">
+  </section>
 
-  <div class="section" id="3d">
-    <h2>🧱 3D Modeling</h2>
-    <img src="3d1.jpg" alt="3D Model 1" class="artwork">
-    <img src="3d2.jpg" alt="3D Model 2" class="artwork">
-  </div>
+  <section id="3d">
+    <h2>📦 3D Modeling</h2>
+    <img src="3d1.jpg" class="artwork" alt="3D 1">
+    <img src="3d2.jpg" class="artwork" alt="3D 2">
+  </section>
 
-  <div class="section" id="storyboard">
-    <h2>📓 Story Board</h2>
-    <img src="story1.jpg" alt="Storyboard 1" class="artwork">
-    <img src="story2.jpg" alt="Storyboard 2" class="artwork">
-  </div>
+  <section id="story">
+    <h2>🗂️ Story Board</h2>
+    <img src="story1.jpg" class="artwork" alt="Storyboard 1">
+  </section>
 
-  <div class="section" id="branding">
-    <h2>🏷️ Branding</h2>
-    <img src="brand1.jpg" alt="Branding 1" class="artwork">
-  </div>
+  <section id="branding">
+    <h2>🧿 Branding</h2>
+    <img src="branding1.jpg" class="artwork" alt="Branding 1">
+  </section>
 
-  <div class="section" id="design">
-    <h2>🖌️ Design</h2>
-    <img src="design1.jpg" alt="Design 1" class="artwork">
-  </div>
+  <section id="design">
+    <h2>✏️ Design</h2>
+    <img src="design1.jpg" class="artwork" alt="Design 1">
+  </section>
 
-  <div class="section" id="calligraphy">
-    <h2>✒️ Calligraphy</h2>
-    <img src="calligraphy1.jpg" alt="Calligraphy 1" class="artwork">
-  </div>
+  <section id="calligraphy">
+    <h2>🖋️ Calligraphy</h2>
+    <img src="calligraphy1.jpg" class="artwork" alt="Calligraphy 1">
+  </section>
 
-  <!-- ===== JAVASCRIPT CHẠY SLIDESHOW ===== -->
+  <!-- JS cho slideshow -->
   <script>
-    let slideIndex = 0;
-    const slides = document.getElementsByClassName("slide");
-
-    function showSlides() {
-      for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      slideIndex++;
-      if (slideIndex > slides.length) { slideIndex = 1; }
-      slides[slideIndex - 1].style.display = "block";
-      setTimeout(showSlides, 1500);
-    }
-
-    showSlides();
+    const slides = document.querySelectorAll('.slideshow img');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 1500);
   </script>
 
 </body>
 </html>
+
 
