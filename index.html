@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Slideshow Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+    }
+
+    .slideshow-container {
+      width: 100%;
+      max-width: 960px;
+      aspect-ratio: 16 / 9;
+      margin: 40px auto;
+      overflow: hidden;
+      position: relative;
+      background: black;
+    }
+
+    .slide-wrapper {
+      display: flex;
+      transition: transform 0.4s ease;
+      cursor: grab;
+      height: 100%;
+    }
+
+    .slide-wrapper.dragging {
+      transition: none;
+      cursor: grabbing;
+    }
+
+    .slide-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .dots {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background-color: #333;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255,255,255,0.6);
+      border: none;
+      font-size: 28px;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 10;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .slideshow-container:hover .arrow {
+      opacity: 1;
+    }
+
+    .arrow-left {
+      left: 10px;
+    }
+
+    .arrow-right {
+      right: 10px;
+    }
+
+    nav {
+      background-color: #333;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: inline-block;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 15px;
+      display: block;
+      font-size: 18px;
+    }
+
+    nav ul li a:hover {
+      background-color: #555;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slideshow-container" id="slideshow">
+    <button class="arrow arrow-left" id="prev">&#10094;</button>
+    <div class="slide-wrapper" id="slider">
+      <img src="images/1.jpg" alt="">
+      <img src="images/2.jpg" alt="">
+      <img src="images/3.jpg" alt="">
+      <img src="images/4.jpg" alt="">
+      <img src="images/5.jpg" alt="">
+    </div>
+    <button class="arrow arrow-right" id="next">&#10095;</button>
+  </div>
+
+  <div class="dots" id="dots"></div>
+
+  <nav>
+    <ul>
+      <li><a href="#illustrations">Illustrations</a></li>
+      <li><a href="#3d">3D Modeling</a></li>
+      <li><a href="#storyboard">Story Board</a></li>
+      <li><a href="#branding">Branding</a></li>
+      <li><a href="#design">Design</a></li>
+      <li><a href="#calligraphy">Calligraphy</a></li>
+    </ul>
+  </nav>
+
+  <section id="illustrations">
+    <h2>Illustrations</h2>
+    <p>Thêm nội dung hoặc hình ảnh minh họa ở đây.</p>
+  </section>
+
+  <script>
+    const slider = document.getElementById('slider');
+    const images = slider.querySelectorAll('img');
+    const dotsContainer = document.getElementById('dots');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+
+    let index = 0;
+    let startX = 0;
+    let currentTranslate = 0;
+    let dragging = false;
+
+    // Tạo dots
+    images.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = dotsContainer.querySelectorAll('.dot');
+
+    function goToSlide(i) {
+      index = i;
+      updateSlider();
+    }
+
+    function updateSlider() {
+      currentTranslate = -index * slider.clientWidth;
+      slider.style.transform = `translateX(${currentTranslate}px)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+    }
+
+    // Nút mũi tên
+    prevBtn.addEventListener('click', () => {
+      if (index > 0) index--;
+      updateSlider();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (index < images.length - 1) index++;
+      updateSlider();
+    });
+
+    // Kéo bằng chuột
+    slider.addEventListener('mousedown', (e) => {
+      dragging = true;
+      startX = e.pageX;
+      slider.classList.add('dragging');
+    });
+
+    slider.addEventListener('mouseup', (e) => {
+      dragging = false;
+      slider.classList.remove('dragging');
+      const moved = e.pageX - startX;
+      if (moved < -50 && index < images.length - 1) index++;
+      if (moved > 50 && index > 0) index--;
+      updateSlider();
+    });
+
+    slider.addEventListener('mouseleave', () => {
+      if (dragging) {
+        dragging = false;
+        slider.classList.remove('dragging');
+        updateSlider();
+      }
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+      if (!dragging) return;
+      const moved = e.pageX - startX;
+      slider.style.transform = `translateX(${currentTranslate + moved}px)`;
+    });
+
+    window.addEventListener('resize', updateSlider);
+  </script>
+
+</body>
+</html>
