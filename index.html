@@ -2,101 +2,147 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>Portfolio của tôi</title>
+  <title>Art Portfolio của tôi</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-
-    h1 {
-      color: #333;
-    }
-
-    nav ul {
-      list-style: none;
+      margin: 0;
       padding: 0;
-      display: flex;
-      gap: 15px;
-      background-color: #f0f0f0;
-      border: 1px solid #ccc;
-      padding: 10px;
+      background: #fff;
     }
 
-    nav ul li {
-      display: inline;
+    /* ===== SLIDESHOW ===== */
+    .slideshow {
+      width: 100%;
+      max-width: 800px;
+      margin: 20px auto 10px auto;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
     }
 
-    nav ul li a {
+    .slideshow img {
+      width: 100%;
+      height: auto;
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      background-color: #333;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
       text-decoration: none;
-      color: #333;
       font-weight: bold;
     }
 
-    nav ul li a:hover {
-      color: #007acc;
+    nav a:hover {
+      text-decoration: underline;
     }
 
-    section {
-      margin-top: 30px;
+    /* ===== CONTENT ===== */
+    .section {
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
     }
 
-    img {
-      max-width: 200px;
-      margin-right: 10px;
+    h1 {
+      text-align: center;
+    }
+
+    img.artwork {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      margin: 10px 0;
+      display: block;
     }
   </style>
 </head>
 <body>
 
-  <h1>Chào mừng đến với Portfolio của tôi!</h1>
-  <p>Đây là một vài tác phẩm nghệ thuật tôi muốn chia sẻ.</p>
+  <!-- ===== SLIDESHOW PHÍA TRÊN ===== -->
+  <div class="slideshow">
+    <img src="slide1.jpg" class="slide" style="display:block;">
+    <img src="slide2.jpg" class="slide">
+    <img src="slide3.jpg" class="slide">
+    <img src="slide4.jpg" class="slide">
+    <img src="slide5.jpg" class="slide">
+    <img src="slide6.jpg" class="slide">
+  </div>
 
-  <!-- 🔹 Thanh công cụ điều hướng -->
+  <!-- ===== THANH MENU ===== -->
   <nav>
-    <ul>
-      <li><a href="#illustrations">Illustrations</a></li>
-      <li><a href="#3d">3D Modeling</a></li>
-      <li><a href="#storyboard">Story Board</a></li>
-      <li><a href="#branding">Branding</a></li>
-      <li><a href="#design">Design</a></li>
-      <li><a href="#calligraphy">Calligraphy</a></li>
-    </ul>
+    <a href="#illustrations">Illustrations</a>
+    <a href="#3d">3D Modeling</a>
+    <a href="#storyboard">Story Board</a>
+    <a href="#branding">Branding</a>
+    <a href="#design">Design</a>
+    <a href="#calligraphy">Calligraphy</a>
   </nav>
 
-  <!-- 🔸 Các mục nội dung -->
-
-  <section id="illustrations">
+  <!-- ===== CÁC MỤC NGHỆ THUẬT ===== -->
+  <div class="section" id="illustrations">
     <h2>🎨 Illustrations</h2>
-    <img src="illustration1.jpg" alt="Tác phẩm 1">
-    <img src="illustration2.jpg" alt="Tác phẩm 2">
-  </section>
+    <img src="illustration1.jpg" alt="Illustration 1" class="artwork">
+    <img src="illustration2.jpg" alt="Illustration 2" class="artwork">
+  </div>
 
-  <section id="3d">
+  <div class="section" id="3d">
     <h2>🧱 3D Modeling</h2>
-    <img src="3d1.jpg" alt="3D 1">
-    <img src="3d2.jpg" alt="3D 2">
-  </section>
+    <img src="3d1.jpg" alt="3D Model 1" class="artwork">
+    <img src="3d2.jpg" alt="3D Model 2" class="artwork">
+  </div>
 
-  <section id="storyboard">
-    <h2>📖 Story Board</h2>
-    <img src="storyboard1.jpg" alt="Storyboard 1">
-  </section>
+  <div class="section" id="storyboard">
+    <h2>📓 Story Board</h2>
+    <img src="story1.jpg" alt="Storyboard 1" class="artwork">
+    <img src="story2.jpg" alt="Storyboard 2" class="artwork">
+  </div>
 
-  <section id="branding">
+  <div class="section" id="branding">
     <h2>🏷️ Branding</h2>
-    <img src="branding1.jpg" alt="Branding 1">
-  </section>
+    <img src="brand1.jpg" alt="Branding 1" class="artwork">
+  </div>
 
-  <section id="design">
+  <div class="section" id="design">
     <h2>🖌️ Design</h2>
-    <img src="design1.jpg" alt="Design 1">
-  </section>
+    <img src="design1.jpg" alt="Design 1" class="artwork">
+  </div>
 
-  <section id="calligraphy">
-    <h2>✍️ Calligraphy</h2>
-    <img src="calligraphy1.jpg" alt="Calligraphy 1">
-  </section>
+  <div class="section" id="calligraphy">
+    <h2>✒️ Calligraphy</h2>
+    <img src="calligraphy1.jpg" alt="Calligraphy 1" class="artwork">
+  </div>
+
+  <!-- ===== JAVASCRIPT CHẠY SLIDESHOW ===== -->
+  <script>
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slide");
+
+    function showSlides() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 1500);
+    }
+
+    showSlides();
+  </script>
 
 </body>
 </html>
+
